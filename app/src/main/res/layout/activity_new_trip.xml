@@ -13,9 +13,8 @@
             android:id="@+id/etDestination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="مقصد سفر"
+            android:hint="sara"
             android:inputType="text" />
-
         <TextView
             android:id="@+id/tvStartDate"
             android:layout_width="match_parent"
