@@ -1,52 +1,108 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp"
     android:gravity="center"
-    android:background="?android:attr/windowBackground">
+    android:background="@drawable/gradient_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="24dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/login"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/textloginLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/vazirmatn"
+        android:textStyle="bold"
+        android:text="ورود به سیستم"
+        android:textColor="#000000"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Headerlayout"
+        />
 
     <EditText
         android:id="@+id/edtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="ایمیل"
-        android:inputType="textEmailAddress"
-        android:drawableLeft="@android:drawable/ic_dialog_email"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp" />
-
+        android:layout_width="320dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="24dp"
+        android:background="#89D0C0"
+        android:drawableStart="@drawable/ic_user"
+        android:fontFamily="@font/vazirmatn"
+        android:hint="نام کاربری"
+        android:imeOptions="actionNext"
+        android:importantForAutofill="no"
+        android:inputType="textWebEmailAddress"
+        android:padding="8dp"
+        android:textColor="#57626D"
+        android:textSize="16dp"
+        android:layout_marginBottom="8dp">
+    </EditText>
     <EditText
-        android:id="@+id/edtPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/passwordInput"
+        android:layout_width="320dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background=" #89D0C0"
+        android:drawableStart="@drawable/ic_eye"
+        android:fontFamily="@font/vazirmatn"
+        android:gravity="right"
         android:hint="رمز عبور"
-        android:inputType="textPassword"
-        android:drawableLeft="@android:drawable/ic_lock_lock"
-        android:padding="12dp"
-        android:layout_marginBottom="24dp" />
-
+        android:imeOptions="actionNext"
+        android:importantForAutofill="no"
+        android:inputType="textWebPassword"
+        android:padding="8dp"
+        android:textColor="#57626D"
+        android:textSize="16dp"
+        android:layout_marginBottom="8dp">
+    </EditText>
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="325dp"
+        android:layout_height="46dp"
+        android:fontFamily="@font/vazirmatn"
         android:text="ورود"
-        android:backgroundTint="#4CAF50"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="16dp"/>
-
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:backgroundTint="#409376"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
     <Button
         android:id="@+id/btnGoToRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="325dp"
+        android:layout_height="46dp"
+        android:fontFamily="@font/vazirmatn"
         android:text="ثبت نام"
-        android:backgroundTint="#FF9800"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="24dp" />
-
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:backgroundTint="#409376"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
     <com.google.android.gms.common.SignInButton
         android:id="@+id/btnGoogleSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="325dp"
+        android:layout_height="46dp" />
 
 </LinearLayout>
