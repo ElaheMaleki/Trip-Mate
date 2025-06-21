@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- دسترسی به اینترنت برای Firebase Auth -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- مجوز ارسال نوتیفیکیشن برای اندروید 13 به بالا -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TripMate"
+        tools:targetApi="31">
+
+        <!-- صفحه اصلی که برنامه از آن شروع می‌شود -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- صفحه ورود کاربر -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+
+        <!-- صفحه ثبت‌نام کاربر -->
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true" />
+
+        <!-- ساخت سفر جدید -->
+        <activity
+            android:name=".NewTripActivity"
+            android:exported="true" />
+
+        <!-- صفحه لیست کارها -->
+        <activity
+            android:name=".ToDoListActivity"
+            android:exported="true" />
+
+        <!-- صفحه خلاصه سفرها -->
+        <activity
+            android:name=".TripSummaryActivity"
+            android:exported="true" />
+
+        <!-- گیرنده نوتیفیکیشن‌ها -->
+        <receiver android:name=".ReminderBroadcastReceiver" />
+
+    </application>
+
+</manifest>
