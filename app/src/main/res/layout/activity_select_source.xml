@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/vazirmatn"
+        android:textStyle="bold"
+        android:text=" درسفر همراه ما باشید "
+        android:textColor="#000000"
+        android:textSize="24dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="160dp"
+        />
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="180dp">
+         <fragment
+            android:id="@+id/map_source"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="MissingClass" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_confirm_source"
+        android:layout_width="325dp"
+        android:layout_height="46dp"
+        android:fontFamily="@font/vazirmatn"
+        android:text="تأیید مبدا"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:backgroundTint="#409376"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="60dp" />
+</RelativeLayout>
