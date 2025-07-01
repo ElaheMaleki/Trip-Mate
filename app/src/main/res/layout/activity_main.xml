@@ -1,33 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layoutMain"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="24dp"
+    android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/imageView_start"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="36dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_main_title"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FF9800"
-        android:text="ورود"
-        android:layout_marginBottom="16dp" />
+        android:fontFamily="@font/vazirmatn"
+        android:text="جهان را کشف کن،\nلحظه‌ها را زندگی کن."
+        android:textColor="#000000"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_start" />
+
+    <TextView
+        android:id="@+id/textView_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/vazirmatn"
+        android:text="برای لحظه‌هایی که دلِ رفتن داری، برای مسیرهایی که هنوز نرفتی، و برای خاطراتی که منتظرن ثبت بشن. برنامه‌ریزی کن، رویا بباف، جاهای جدید کشف کن... هر قدمی که برمی‌داری، بخشی از داستان سفر توست."
+        android:textColor="#57626D"
+        android:textSize="16sp"
+        android:gravity="right"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_main_title" />
 
     <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#4CAF50"
-        android:text="ثبت‌نام"
-        android:layout_marginBottom="16dp" />
+        android:id="@+id/button_start_now"
+        android:layout_width="373dp"
+        android:layout_height="46dp"
+        android:fontFamily="@font/vazirmatn"
+        android:text="بیایید سفر کنیم"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:backgroundTint="#409376"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:drawablePadding="8dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/btnGoogleSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
