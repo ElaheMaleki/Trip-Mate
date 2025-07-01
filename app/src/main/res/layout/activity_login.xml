@@ -4,30 +4,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp"
-    android:gravity="center"
+    android:paddingTop="0dp"
+    android:gravity="top|center_horizontal"
     android:background="@drawable/gradient_background">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent">
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_marginTop="24dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/4118011-removebg-preview"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
+        android:orientation="vertical">
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/start" />
+
     <TextView
         android:id="@+id/textloginLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="vazirmatn"
+        android:fontFamily="@font/vazirmatn"
         android:textStyle="bold"
         android:text="ورود به سیستم"
         android:textColor="#000000"
@@ -42,7 +37,7 @@
         android:layout_height="46dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:background="#89D0C0"
         android:drawableStart="@drawable/ic_user"
         android:fontFamily="@font/vazirmatn"
@@ -59,8 +54,6 @@
         android:id="@+id/passwordInput"
         android:layout_width="320dp"
         android:layout_height="46dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
         android:background=" #89D0C0"
         android:drawableStart="@drawable/ic_eye"
         android:fontFamily="@font/vazirmatn"
@@ -74,6 +67,8 @@
         android:textSize="16dp"
         android:layout_marginBottom="8dp">
     </EditText>
+    </LinearLayout>
+
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="325dp"
@@ -83,6 +78,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:backgroundTint="#409376"
+        android:layout_marginTop="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,12 +92,16 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:backgroundTint="#409376"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-    <com.google.android.gms.common.SignInButton
+
+       <com.google.android.gms.common.SignInButton
         android:id="@+id/btnGoogleSignIn"
         android:layout_width="325dp"
-        android:layout_height="46dp" />
+        android:layout_height="46dp"
+           android:layout_marginTop="8dp"
+           />
 
 </LinearLayout>

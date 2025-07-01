@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         edtEmail = findViewById(R.id.edtEmail);
-        edtPassword = findViewById(R.id.edtPassword);
+        edtPassword = findViewById(R.id.passwordInput);
         btnLogin = findViewById(R.id.btnLogin);
         btnGoToRegister = findViewById(R.id.btnGoToRegister);
         btnGoogleSignIn = findViewById(R.id.btnGoogleSignIn);
@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        startActivity(new Intent(LoginActivity.this, NewTripActivity.class));
+        startActivity(new Intent(LoginActivity.this, SelectSourceActivity.class));
         finish();
     }
 

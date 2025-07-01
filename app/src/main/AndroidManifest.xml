@@ -4,9 +4,13 @@
 
     <!-- دسترسی به اینترنت برای Firebase Auth -->
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <!-- دسترسی به موقعیت مکانی -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- مجوز ارسال نوتیفیکیشن برای اندروید 13 به بالا -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+
 
     <application
         android:allowBackup="true"
@@ -18,7 +22,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TripMate"
         tools:targetApi="31">
-
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDUCoTHDTvveXh5b1lNtyMVbJIoRFsnMCs" />
         <!-- صفحه اصلی که برنامه از آن شروع می‌شود -->
         <activity
             android:name=".MainActivity"
@@ -56,7 +62,11 @@
 
         <!-- گیرنده نوتیفیکیشن‌ها -->
         <receiver android:name=".ReminderBroadcastReceiver" />
+        <!-- فعالیت‌های مربوط به انتخاب مبدا و مقصد -->
+        <activity android:name=".SelectSourceActivity" android:exported="true" />
 
+        <activity android:name=".SelectDestinationActivity" android:exported="true" />
+        <activity android:name=".ResultActivity" android:exported="true" />
     </application>
 
 </manifest>
