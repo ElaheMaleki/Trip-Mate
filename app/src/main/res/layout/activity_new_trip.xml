@@ -1,81 +1,140 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/gradient_background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
 
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/trip" />
         <EditText
             android:id="@+id/etDestination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="sara"
-            android:inputType="text" />
-        <TextView
-            android:id="@+id/tvStartDate"
+            android:hint="نام شهر مقصد"
+            android:inputType="text"
+            android:textColorHint="#184B30"
+            />
+        <!-- ردیف افقی تاریخ شروع و تاریخ پایان -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="تاریخ شروع"
-            android:padding="12dp"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginTop="12dp" />
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:layoutDirection="rtl">
 
-        <Button
-            android:id="@+id/btnSelectStartDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#4CAF50"
-            android:text="انتخاب تاریخ شروع" />
+            <!-- تاریخ شروع (سمت راست) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvStartTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="ساعت شروع"
-            android:padding="12dp"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginTop="12dp" />
+                <TextView
+                    android:id="@+id/tvStartDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="تاریخ شروع"
+                    android:fontFamily="@font/vazirmatn"
+                    android:padding="12dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:textColorHint="#849784"
+                    />
 
-        <Button
-            android:id="@+id/btnSelectStartTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#4CAF50"
-            android:text="انتخاب ساعت شروع" />
+                <Button
+                    android:id="@+id/btnSelectStartDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#409376"
+                    android:fontFamily="@font/vazirmatn"
+                    android:text="انتخاب تاریخ شروع" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvEndDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="تاریخ پایان"
-            android:padding="12dp"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginTop="12dp" />
+            <Space
+                android:layout_width="12dp"
+                android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/btnSelectEndDate"
+            <!-- تاریخ پایان (سمت چپ) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvEndDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="تاریخ پایان"
+                    android:fontFamily="@font/vazirmatn"
+                    android:padding="12dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:textColorHint="#849784"
+                    />
+
+                <Button
+                    android:id="@+id/btnSelectEndDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#409376"
+                    android:fontFamily="@font/vazirmatn"
+                    android:text="انتخاب تاریخ پایان" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ساعت شروع -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#4CAF50"
-            android:text="انتخاب تاریخ پایان" />
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/tvStartTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="ساعت شروع"
+                android:fontFamily="@font/vazirmatn"
+                android:padding="12dp"
+                android:background="@android:drawable/editbox_background"
+                android:textColorHint="#849784"
+                />
+
+            <Button
+                android:id="@+id/btnSelectStartTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#409376"
+                android:fontFamily="@font/vazirmatn"
+                android:text="انتخاب ساعت شروع" />
+        </LinearLayout>
 
         <EditText
             android:id="@+id/etPeopleCount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="تعداد افراد"
+            android:fontFamily="@font/vazirmatn"
             android:inputType="number"
-            android:layout_marginTop="12dp" />
-
+            android:layout_marginTop="16dp"
+            android:textColorHint="#184B30"
+            />
         <Button
             android:id="@+id/btnGoToToDo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FF9800"
+            android:backgroundTint="#255B49"
+            android:fontFamily="@font/vazirmatn"
             android:text="ثبت سفر"
             android:layout_marginTop="16dp" />
     </LinearLayout>

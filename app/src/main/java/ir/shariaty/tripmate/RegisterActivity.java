@@ -1,6 +1,7 @@
 package ir.shariaty.tripmate;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,9 +32,17 @@ public class RegisterActivity extends AppCompatActivity {
             if (fullName.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "لطفاً همه‌ی فیلدها را پر کنید", Toast.LENGTH_SHORT).show();
             } else {
-                Intent intent = new Intent(RegisterActivity.this, NewTripActivity.class);
-                intent.putExtra("FULL_NAME", fullName);
-                intent.putExtra("EMAIL", email);
+                // ذخیره اطلاعات در SharedPreferences
+                SharedPreferences prefs = getSharedPreferences("UserData", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("FULL_NAME", fullName);
+                editor.putString("EMAIL", email);
+                editor.putString("PASSWORD", password);
+                editor.apply();
+
+                Toast.makeText(this, "ثبت‌نام با موفقیت انجام شد", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

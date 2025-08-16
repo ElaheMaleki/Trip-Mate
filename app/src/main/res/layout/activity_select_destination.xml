@@ -1,10 +1,24 @@
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:map="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="@drawable/gradient_background">
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient_background">
+    <EditText
+        android:id="@+id/et_dest_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="آدرس مقصد"
+        android:focusable="false"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentTop="true"
+        android:background="@android:drawable/editbox_background"
+        android:fontFamily="@font/vazirmatn"
+        android:textSize="16sp"
+        />
 
 <TextView
     android:layout_width="wrap_content"
@@ -21,13 +35,15 @@ android:background="@drawable/gradient_background">
     android:layout_width="400dp"
     android:layout_height="400dp"
     android:layout_marginStart="6dp"
-    android:layout_marginTop="180dp">
+    android:layout_marginTop="180dp"
+    >
     <fragment
         android:id="@+id/map_destination"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:ignore="MissingClass" />
+        tools:ignore="MissingClass"
+        />
 </LinearLayout>
 <Button
     android:id="@+id/btn_confirm_destination"
@@ -42,5 +58,6 @@ android:background="@drawable/gradient_background">
     android:layout_centerHorizontal="true"
     android:layout_marginRight="16dp"
     android:layout_marginLeft="16dp"
-    android:layout_marginBottom="60dp" />
+    android:layout_marginBottom="60dp"
+    app:cornerRadius="10dp"/>
 </RelativeLayout>

@@ -22,22 +22,22 @@
             android:fontFamily="@font/vazirmatn"
             android:textStyle="bold"
             android:text="ورود به سیستم"
-            android:textColor="#000000"
+            android:textColor="#1B452E"
             android:textSize="24dp" />
 
         <EditText
             android:id="@+id/edtFullName"
             android:layout_width="320dp"
             android:layout_height="46dp"
-            android:background="#89D0C0"
+            android:background="@drawable/rounded_edittext"
             android:drawableStart="@drawable/ic_user"
             android:fontFamily="@font/vazirmatn"
             android:hint="نام و نام خانوادگی"
             android:imeOptions="actionNext"
             android:layout_marginTop="12dp"
             android:inputType="textPersonName"
-            android:padding="8dp"
-            android:textColor="#57626D"
+            android:padding="12dp"
+            android:textColorHint="#184B30"
             android:textSize="16dp"
             android:layout_marginBottom="8dp">
         </EditText>
@@ -45,7 +45,7 @@
             android:id="@+id/edtEmail"
             android:layout_width="320dp"
             android:layout_height="46dp"
-            android:background=" #89D0C0"
+            android:background="@drawable/rounded_edittext"
             android:drawableStart="@drawable/ic_eye"
             android:fontFamily="@font/vazirmatn"
             android:gravity="right"
@@ -53,8 +53,8 @@
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="textWebPassword"
-            android:padding="8dp"
-            android:textColor="#57626D"
+            android:padding="12dp"
+            android:textColorHint="#184B30"
             android:textSize="16dp"
             android:layout_marginBottom="8dp">
         </EditText>
@@ -62,7 +62,7 @@
             android:id="@+id/edtPassword"
             android:layout_width="320dp"
             android:layout_height="46dp"
-            android:background=" #89D0C0"
+            android:background="@drawable/rounded_edittext"
             android:drawableStart="@drawable/ic_eye"
             android:fontFamily="@font/vazirmatn"
             android:gravity="right"
@@ -70,8 +70,8 @@
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="textWebPassword"
-            android:padding="8dp"
-            android:textColor="#57626D"
+            android:padding="12dp"
+            android:textColorHint="#184B30"
             android:textSize="16dp"
             android:layout_marginBottom="8dp">
         </EditText>
@@ -84,11 +84,47 @@
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:backgroundTint="#409376"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="12dp"
+            app:cornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/vazirmatn"
+                android:textSize="14sp"
+                android:textColor="#666A6A"
+                android:textStyle="bold"
+                android:text="حساب کاربری دارید؟" />
+
+            <Space
+                android:layout_width="6dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/btnGoTologin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/vazirmatn"
+                android:textSize="14sp"
+                android:textColor="#409275"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="وارد شوید" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>

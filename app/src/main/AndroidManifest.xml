@@ -59,13 +59,17 @@
         <activity
             android:name=".TripSummaryActivity"
             android:exported="true" />
+        <activity
+            android:name=".SelectSourceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SelectDestinationActivity"
+            android:exported="true" />
 
         <!-- گیرنده نوتیفیکیشن‌ها -->
         <receiver android:name=".ReminderBroadcastReceiver" />
         <!-- فعالیت‌های مربوط به انتخاب مبدا و مقصد -->
-        <activity android:name=".SelectSourceActivity" android:exported="true" />
 
-        <activity android:name=".SelectDestinationActivity" android:exported="true" />
         <activity android:name=".ResultActivity" android:exported="true" />
     </application>
 

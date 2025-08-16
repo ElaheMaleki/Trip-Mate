@@ -1,10 +1,12 @@
 package ir.shariaty.tripmate;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,9 +30,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
+    private TextView tvSignUpLink;
 
     private EditText edtEmail, edtPassword;
-    private Button btnLogin, btnGoToRegister;
+    private Button btnLogin;
     private SignInButton btnGoogleSignIn;
 
     @Override
@@ -39,15 +42,15 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
-
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.passwordInput);
         btnLogin = findViewById(R.id.btnLogin);
-        btnGoToRegister = findViewById(R.id.btnGoToRegister);
+        tvSignUpLink = findViewById(R.id.tvSignUpLink);
         btnGoogleSignIn = findViewById(R.id.btnGoogleSignIn);
 
         btnLogin.setOnClickListener(view -> loginWithEmailPassword());
-        btnGoToRegister.setOnClickListener(v -> {
+
+        tvSignUpLink.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
 
@@ -66,12 +69,22 @@ public class LoginActivity extends AppCompatActivity {
         String password = edtPassword.getText().toString().trim();
 
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "لطفاً ایمیل و رمز عبور را وارد کنید", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "لطفاً نام کاربری و رمز عبور را وارد کنید", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        startActivity(new Intent(LoginActivity.this, SelectSourceActivity.class));
-        finish();
+        // خواندن اطلاعات ذخیره شده
+        SharedPreferences prefs = getSharedPreferences("UserData", MODE_PRIVATE);
+        String savedEmail = prefs.getString("EMAIL", "");
+        String savedPassword = prefs.getString("PASSWORD", "");
+
+        if (email.equals(savedEmail) && password.equals(savedPassword)) {
+            Toast.makeText(this, "ورود موفقیت‌آمیز", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(LoginActivity.this, SelectSourceActivity.class));
+            finish();
+        } else {
+            Toast.makeText(this, "ایمیل یا رمز عبور اشتباه است", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void signInWithGoogle() {

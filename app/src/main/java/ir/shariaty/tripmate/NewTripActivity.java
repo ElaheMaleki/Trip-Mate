@@ -25,12 +25,13 @@ import java.util.Calendar;
 
 public class NewTripActivity extends AppCompatActivity {
 
-    private EditText etDestination, etPeopleCount;
+    private EditText  etDestination,etPeopleCount;
     private TextView tvStartDate, tvEndDate, tvStartTime;
     private Button btnSelectStartDate, btnSelectEndDate, btnSelectStartTime, btnGoToToDo;
 
     private int startHour = -1;
     private int startMinute = -1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,10 +113,7 @@ public class NewTripActivity extends AppCompatActivity {
     }
 
     private boolean validateInputs() {
-        if (etDestination.getText().toString().trim().isEmpty()) {
-            Toast.makeText(this, "لطفاً مقصد را وارد کنید", Toast.LENGTH_SHORT).show();
-            return false;
-        }
+
         if (tvStartDate.getText().toString().trim().isEmpty()) {
             Toast.makeText(this, "لطفاً تاریخ شروع را وارد کنید", Toast.LENGTH_SHORT).show();
             return false;
