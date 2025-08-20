@@ -1,11 +1,14 @@
 package ir.shariaty.tripmate;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,25 +34,43 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private TextView tvSignUpLink;
-
-    private EditText edtEmail, edtPassword;
+    private EditText etLoginUsername, etLoginPassword;
     private Button btnLogin;
     private SignInButton btnGoogleSignIn;
-
+    private SharedPreferences prefs;
+    private ImageView ivTogglePassword;
+    private boolean isPasswordVisible = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // مقداردهی SharedPreferences
+        prefs = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+
         mAuth = FirebaseAuth.getInstance();
-        edtEmail = findViewById(R.id.edtEmail);
-        edtPassword = findViewById(R.id.passwordInput);
+        etLoginUsername = findViewById(R.id.etLoginUsername);
+        etLoginPassword = findViewById(R.id.etLoginPassword);
         btnLogin = findViewById(R.id.btnLogin);
         tvSignUpLink = findViewById(R.id.tvSignUpLink);
         btnGoogleSignIn = findViewById(R.id.btnGoogleSignIn);
+        ivTogglePassword = findViewById(R.id.ivTogglePassword);
 
-        btnLogin.setOnClickListener(view -> loginWithEmailPassword());
-
+        btnLogin.setOnClickListener(view -> loginWithUsernamePassword());
+        // قابلیت نمایش/مخفی کردن رمز عبور
+        ivTogglePassword.setOnClickListener(view -> {
+            if (isPasswordVisible) {
+                etLoginPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                ivTogglePassword.setImageResource(R.drawable.hidden); // چشم بسته
+                isPasswordVisible = false;
+            } else {
+                etLoginPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                ivTogglePassword.setImageResource(R.drawable.ic_eye); // چشم باز
+                isPasswordVisible = true;
+            }
+            etLoginPassword.setSelection(etLoginPassword.getText().length());
+        });
+        // هدایت به RegisterActivity هنگام کلیک روی لینک ثبت‌نام
         tvSignUpLink.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
@@ -64,26 +85,25 @@ public class LoginActivity extends AppCompatActivity {
         btnGoogleSignIn.setOnClickListener(view -> signInWithGoogle());
     }
 
-    private void loginWithEmailPassword() {
-        String email = edtEmail.getText().toString().trim();
-        String password = edtPassword.getText().toString().trim();
+    private void loginWithUsernamePassword() {
+        String inputUsername = etLoginUsername.getText().toString().trim();
+        String inputPassword = etLoginPassword.getText().toString().trim();
 
-        if (email.isEmpty() || password.isEmpty()) {
+        if (inputUsername.isEmpty() || inputPassword.isEmpty()) {
             Toast.makeText(this, "لطفاً نام کاربری و رمز عبور را وارد کنید", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // خواندن اطلاعات ذخیره شده
-        SharedPreferences prefs = getSharedPreferences("UserData", MODE_PRIVATE);
-        String savedEmail = prefs.getString("EMAIL", "");
-        String savedPassword = prefs.getString("PASSWORD", "");
+        // خواندن اطلاعات ذخیره‌شده
+        String savedUsername = prefs.getString("username", "");
+        String savedPassword = prefs.getString("password", "");
 
-        if (email.equals(savedEmail) && password.equals(savedPassword)) {
+        if (inputUsername.equals(savedUsername) && inputPassword.equals(savedPassword)) {
             Toast.makeText(this, "ورود موفقیت‌آمیز", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(LoginActivity.this, SelectSourceActivity.class));
+            startActivity(new Intent(LoginActivity.this, NewTripActivity.class));
             finish();
         } else {
-            Toast.makeText(this, "ایمیل یا رمز عبور اشتباه است", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "نام کاربری یا رمز عبور اشتباه است", Toast.LENGTH_SHORT).show();
         }
     }
 

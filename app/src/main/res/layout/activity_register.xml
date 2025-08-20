@@ -11,22 +11,27 @@
         android:orientation="vertical"
         android:padding="24dp"
         android:gravity="center_horizontal">
+
         <ImageView
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:adjustViewBounds="true"
-                android:src="@drawable/register" />
+            android:layout_width="270dp"
+            android:layout_height="270dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/register" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/vazirmatn"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
             android:textStyle="bold"
-            android:text="ورود به سیستم"
+            android:text="ثبت نام"
             android:textColor="#1B452E"
             android:textSize="24dp" />
 
+        <!-- نام و نام خانوادگی -->
         <EditText
-            android:id="@+id/edtFullName"
+            android:id="@+id/etUsername"
             android:layout_width="320dp"
             android:layout_height="46dp"
             android:background="@drawable/rounded_edittext"
@@ -34,50 +39,83 @@
             android:fontFamily="@font/vazirmatn"
             android:hint="نام و نام خانوادگی"
             android:imeOptions="actionNext"
-            android:layout_marginTop="12dp"
             android:inputType="textPersonName"
             android:padding="12dp"
-            android:textColorHint="#184B30"
+            android:textColor="#0B2A1C"
+            android:textColorHint="#496457"
             android:textSize="16dp"
-            android:layout_marginBottom="8dp">
-        </EditText>
-        <EditText
-            android:id="@+id/edtEmail"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- رمز عبور با چشم -->
+        <LinearLayout
             android:layout_width="320dp"
             android:layout_height="46dp"
             android:background="@drawable/rounded_edittext"
-            android:drawableStart="@drawable/ic_eye"
-            android:fontFamily="@font/vazirmatn"
-            android:gravity="right"
-            android:hint="رمز عبور"
-            android:imeOptions="actionNext"
-            android:importantForAutofill="no"
-            android:inputType="textWebPassword"
+            android:orientation="horizontal"
             android:padding="12dp"
-            android:textColorHint="#184B30"
-            android:textSize="16dp"
-            android:layout_marginBottom="8dp">
-        </EditText>
-        <EditText
-            android:id="@+id/edtPassword"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/ivTogglePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Toggle Password"
+                android:src="@drawable/hidden" />
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="رمز عبور"
+                android:inputType="textPassword"
+                android:fontFamily="@font/vazirmatn"
+                android:textColor="#0B2A1C"
+                android:textColorHint="#496457"
+                android:textSize="16dp"
+                android:background="@null"
+                android:gravity="end|center_vertical"
+                android:textAlignment="viewEnd"/>
+        </LinearLayout>
+
+        <!-- تکرار رمز عبور با چشم -->
+        <LinearLayout
             android:layout_width="320dp"
             android:layout_height="46dp"
             android:background="@drawable/rounded_edittext"
-            android:drawableStart="@drawable/ic_eye"
-            android:fontFamily="@font/vazirmatn"
-            android:gravity="right"
-            android:hint=" تکراررمز عبور"
-            android:imeOptions="actionNext"
-            android:importantForAutofill="no"
-            android:inputType="textWebPassword"
+            android:orientation="horizontal"
             android:padding="12dp"
-            android:textColorHint="#184B30"
-            android:textSize="16dp"
-            android:layout_marginBottom="8dp">
-        </EditText>
+            android:layout_marginBottom="8dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/ivToggleRePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Toggle RePassword"
+                android:src="@drawable/hidden" />
+            <EditText
+                android:id="@+id/reppassword"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="تکرار رمز عبور"
+                android:inputType="textPassword"
+                android:fontFamily="@font/vazirmatn"
+                android:textColor="#0B2A1C"
+                android:textColorHint="#496457"
+                android:textSize="16dp"
+                android:background="@null"
+                android:gravity="end|center_vertical"
+                android:textAlignment="viewEnd"/>
+
+
+        </LinearLayout>
+
+        <!-- دکمه ثبت نام -->
         <Button
             android:id="@+id/btnRegister"
-            android:layout_width="325dp"
+            android:layout_width="320dp"
             android:layout_height="46dp"
             android:fontFamily="@font/vazirmatn"
             android:text="ثبت نام"
@@ -85,32 +123,15 @@
             android:textSize="16sp"
             android:backgroundTint="#409376"
             android:layout_marginTop="12dp"
-            app:cornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            />
+            app:cornerRadius="10dp" />
+
+        <!-- متن ورود -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:layoutDirection="rtl"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/vazirmatn"
-                android:textSize="14sp"
-                android:textColor="#666A6A"
-                android:textStyle="bold"
-                android:text="حساب کاربری دارید؟" />
-
-            <Space
-                android:layout_width="6dp"
-                android:layout_height="wrap_content" />
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/btnGoTologin"
@@ -123,6 +144,20 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:text="وارد شوید" />
+
+            <Space
+                android:layout_width="6dp"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/vazirmatn"
+                android:textSize="14sp"
+                android:textColor="#666A6A"
+                android:textStyle="bold"
+                android:text="حساب کاربری دارید؟" />
         </LinearLayout>
 
     </LinearLayout>

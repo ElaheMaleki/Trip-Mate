@@ -1,6 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp"
     android:background="@drawable/gradient_background">
 
@@ -16,14 +17,7 @@
             android:layout_height="300dp"
             android:adjustViewBounds="true"
             android:src="@drawable/trip" />
-        <EditText
-            android:id="@+id/etDestination"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="نام شهر مقصد"
-            android:inputType="text"
-            android:textColorHint="#184B30"
-            />
+
         <!-- ردیف افقی تاریخ شروع و تاریخ پایان -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,6 +35,7 @@
                 android:orientation="vertical">
 
                 <TextView
+
                     android:id="@+id/tvStartDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -48,7 +43,8 @@
                     android:fontFamily="@font/vazirmatn"
                     android:padding="12dp"
                     android:background="@android:drawable/editbox_background"
-                    android:textColorHint="#849784"
+                    android:textColor="#0B2A1C"
+                    android:textColorHint="#496457"
                     />
 
                 <Button
@@ -57,6 +53,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="#409376"
                     android:fontFamily="@font/vazirmatn"
+                    app:cornerRadius="8dp"
                     android:text="انتخاب تاریخ شروع" />
             </LinearLayout>
 
@@ -79,7 +76,8 @@
                     android:fontFamily="@font/vazirmatn"
                     android:padding="12dp"
                     android:background="@android:drawable/editbox_background"
-                    android:textColorHint="#849784"
+                    android:textColor="#0B2A1C"
+                    android:textColorHint="#496457"
                     />
 
                 <Button
@@ -88,6 +86,8 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="#409376"
                     android:fontFamily="@font/vazirmatn"
+                    app:cornerRadius="10dp"
+
                     android:text="انتخاب تاریخ پایان" />
             </LinearLayout>
         </LinearLayout>
@@ -107,7 +107,8 @@
                 android:fontFamily="@font/vazirmatn"
                 android:padding="12dp"
                 android:background="@android:drawable/editbox_background"
-                android:textColorHint="#849784"
+                android:textColor="#0B2A1C"
+                android:textColorHint="#496457"
                 />
 
             <Button
@@ -116,6 +117,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#409376"
                 android:fontFamily="@font/vazirmatn"
+                app:cornerRadius="10dp"
                 android:text="انتخاب ساعت شروع" />
         </LinearLayout>
 
@@ -127,13 +129,13 @@
             android:fontFamily="@font/vazirmatn"
             android:inputType="number"
             android:layout_marginTop="16dp"
-            android:textColorHint="#184B30"
-            />
+            android:textColor="#0B2A1C"
+            android:textColorHint="#496457"/>
         <Button
             android:id="@+id/btnGoToToDo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#255B49"
+            android:backgroundTint="#409376"
             android:fontFamily="@font/vazirmatn"
             android:text="ثبت سفر"
             android:layout_marginTop="16dp" />
