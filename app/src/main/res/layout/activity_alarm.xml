@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:paddingTop="0dp"
+    android:gravity="top|center_horizontal"
+    android:background="@drawable/gradient_background"
+    >
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/time" />
+
+        <TextView
+            android:id="@+id/tvAlarmStartDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:background="@android:drawable/editbox_background"
+            android:fontFamily="@font/vazirmatn"
+            android:hint="تاریخ شروع سفر:"
+            android:padding="12dp"
+            android:textColor="#0B2A1C"
+            android:textColorHint="#496457"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvAlarmStartTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@android:drawable/editbox_background"
+            android:fontFamily="@font/vazirmatn"
+            android:hint="ساعت شروع سفر:"
+            android:padding="12dp"
+            android:textColor="#0B2A1C"
+            android:textColorHint="#496457"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnSetAlarm"
+            android:layout_width="360dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#409376"
+            android:fontFamily="@font/vazirmatn"
+            android:text="ثبت نهایی آلارم"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:cornerRadius="4dp" />
+    <Button
+        android:id="@+id/btnback"
+        android:layout_width="130dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#6DC4CC"
+        android:fontFamily="@font/vazirmatn"
+        android:text="بازگشت"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_gravity="left"
+        app:cornerRadius="4dp" />
+    </LinearLayout>

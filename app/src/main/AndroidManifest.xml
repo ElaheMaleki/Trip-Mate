@@ -69,7 +69,8 @@
         <!-- گیرنده نوتیفیکیشن‌ها -->
         <receiver android:name=".ReminderBroadcastReceiver" />
         <!-- فعالیت‌های مربوط به انتخاب مبدا و مقصد -->
-
+        <activity android:name=".AlarmActivity" />
+        <receiver android:name=".AlarmReceiver" />
         <activity android:name=".ResultActivity" android:exported="true" />
     </application>
 
