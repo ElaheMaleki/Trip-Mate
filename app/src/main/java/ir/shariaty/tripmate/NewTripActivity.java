@@ -38,6 +38,7 @@ public class NewTripActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_trip);
 
+        etDestination = findViewById(R.id.etDestination);
         etPeopleCount = findViewById(R.id.etPeopleCount);
         tvStartDate = findViewById(R.id.tvStartDate);
         tvEndDate = findViewById(R.id.tvEndDate);
@@ -53,6 +54,7 @@ public class NewTripActivity extends AppCompatActivity {
 
         btnGoToToDo.setOnClickListener(v -> {
             if (validateInputs()) {
+                String destination = etDestination.getText().toString().trim();
                 String startDate = tvStartDate.getText().toString();
                 String endDate = tvEndDate.getText().toString();
                 int peopleCount = Integer.parseInt(etPeopleCount.getText().toString());
@@ -60,13 +62,18 @@ public class NewTripActivity extends AppCompatActivity {
 
                 String tripId = String.valueOf(System.currentTimeMillis());
 
-                saveTrip(tripId , startDate, startTime, endDate, peopleCount);
+                saveTrip(tripId ,destination,startDate, startTime, endDate, peopleCount);
 
                 scheduleNotification(tripId, startDate, startTime);
 
                 Intent intent = new Intent(NewTripActivity.this, ToDoListActivity.class);
                 intent.putExtra("trip_id", tripId);
+                intent.putExtra("start_date", startDate);
+                intent.putExtra("start_time", startTime);
                 startActivity(intent);
+
+
+
             }
         });
     }
@@ -131,7 +138,7 @@ public class NewTripActivity extends AppCompatActivity {
         return true;
     }
 
-    private void saveTrip(String tripId, String startDate, String startTime, String endDate, int peopleCount) {
+    private void saveTrip(String tripId,String destination, String startDate, String startTime, String endDate, int peopleCount) {
         SharedPreferences sp = getSharedPreferences("trips_prefs", MODE_PRIVATE);
         String tripsJson = sp.getString("trips", "[]");
 
@@ -140,6 +147,7 @@ public class NewTripActivity extends AppCompatActivity {
 
             JSONObject tripObj = new JSONObject();
             tripObj.put("tripId", tripId);
+            tripObj.put("destination", destination);
             tripObj.put("startDate", startDate);
             tripObj.put("startTime", startTime);
             tripObj.put("endDate", endDate);

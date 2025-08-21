@@ -17,7 +17,16 @@
             android:layout_height="300dp"
             android:adjustViewBounds="true"
             android:src="@drawable/trip" />
-
+        <EditText
+            android:id="@+id/etDestination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="مقصد سفر"
+            android:inputType="text"
+            android:textColor="#0B2A1C"
+            android:textColorHint="#496457"
+            android:fontFamily="@font/vazirmatn"
+            />
         <!-- ردیف افقی تاریخ شروع و تاریخ پایان -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -92,7 +101,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- ساعت شروع -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

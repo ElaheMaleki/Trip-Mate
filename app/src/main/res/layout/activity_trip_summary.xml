@@ -3,9 +3,10 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/gradient_background">
+    android:background="#134C4E">
 
     <TextView
         android:id="@+id/tvTitle"
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="خلاصه سفرها"
         android:textSize="24sp"
-        android:textColor="#08433C"
+        android:textColor="#E9EBED"
         android:textStyle="bold"
         android:gravity="center"
         android:paddingBottom="12dp"
@@ -28,9 +29,7 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="12dp"
         android:textSize="20sp"
-        android:textColor="#000000"
         android:clipToPadding="false" />
-
 
     <Button
         android:id="@+id/btnAddTrip"
@@ -42,5 +41,8 @@
         android:textColor="#ffffff"
         android:textSize="16sp"
         android:layout_marginTop="12dp"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        app:cornerRadius="10dp"
+
+        />
 </LinearLayout>

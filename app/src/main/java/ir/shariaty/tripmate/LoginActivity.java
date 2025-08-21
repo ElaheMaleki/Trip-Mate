@@ -45,7 +45,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // مقداردهی SharedPreferences
         prefs = getSharedPreferences("UserData", Context.MODE_PRIVATE);
 
         mAuth = FirebaseAuth.getInstance();
@@ -57,7 +56,6 @@ public class LoginActivity extends AppCompatActivity {
         ivTogglePassword = findViewById(R.id.ivTogglePassword);
 
         btnLogin.setOnClickListener(view -> loginWithUsernamePassword());
-        // قابلیت نمایش/مخفی کردن رمز عبور
         ivTogglePassword.setOnClickListener(view -> {
             if (isPasswordVisible) {
                 etLoginPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
@@ -70,12 +68,10 @@ public class LoginActivity extends AppCompatActivity {
             }
             etLoginPassword.setSelection(etLoginPassword.getText().length());
         });
-        // هدایت به RegisterActivity هنگام کلیک روی لینک ثبت‌نام
         tvSignUpLink.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
 
-        // Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -94,13 +90,12 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        // خواندن اطلاعات ذخیره‌شده
         String savedUsername = prefs.getString("username", "");
         String savedPassword = prefs.getString("password", "");
 
         if (inputUsername.equals(savedUsername) && inputPassword.equals(savedPassword)) {
             Toast.makeText(this, "ورود موفقیت‌آمیز", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(LoginActivity.this, NewTripActivity.class));
+            startActivity(new Intent(LoginActivity.this, SelectSourceActivity.class));
             finish();
         } else {
             Toast.makeText(this, "نام کاربری یا رمز عبور اشتباه است", Toast.LENGTH_SHORT).show();
@@ -136,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
                         Toast.makeText(this, "خوش آمدید " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LoginActivity.this, NewTripActivity.class));
+                        startActivity(new Intent(LoginActivity.this, SelectSourceActivity.class));
                         finish();
                     } else {
                         Toast.makeText(this, "ورود با گوگل ناموفق", Toast.LENGTH_SHORT).show();

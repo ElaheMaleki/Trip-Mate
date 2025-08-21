@@ -23,13 +23,12 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/vazirmatn"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="12dp"
             android:textStyle="bold"
             android:text="ثبت نام"
             android:textColor="#1B452E"
             android:textSize="24dp" />
 
-        <!-- نام و نام خانوادگی -->
         <EditText
             android:id="@+id/etUsername"
             android:layout_width="320dp"
@@ -45,8 +44,6 @@
             android:textColorHint="#496457"
             android:textSize="16dp"
             android:layout_marginBottom="8dp"/>
-
-        <!-- رمز عبور با چشم -->
         <LinearLayout
             android:layout_width="320dp"
             android:layout_height="46dp"
@@ -78,7 +75,6 @@
                 android:textAlignment="viewEnd"/>
         </LinearLayout>
 
-        <!-- تکرار رمز عبور با چشم -->
         <LinearLayout
             android:layout_width="320dp"
             android:layout_height="46dp"
@@ -111,8 +107,6 @@
 
 
         </LinearLayout>
-
-        <!-- دکمه ثبت نام -->
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="320dp"
@@ -125,7 +119,6 @@
             android:layout_marginTop="12dp"
             app:cornerRadius="10dp" />
 
-        <!-- متن ورود -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

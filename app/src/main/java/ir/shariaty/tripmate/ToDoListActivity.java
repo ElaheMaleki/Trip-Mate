@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class ToDoListActivity extends AppCompatActivity {
 
     private EditText etNewTask;
-    private Button btnAddTask, btnShowSummary;
+    private Button btnAddTask, btnShowSummary, btnAlarm;
     private ListView lvTasks;
 
     private ArrayList<String> taskList;
@@ -45,6 +45,7 @@ public class ToDoListActivity extends AppCompatActivity {
         etNewTask = findViewById(R.id.etNewTask);
         btnAddTask = findViewById(R.id.btnAddTask);
         btnShowSummary = findViewById(R.id.btnShowSummary);
+        btnAlarm = findViewById(R.id.btnalarm); // اضافه شده
         lvTasks = findViewById(R.id.lvTasks);
 
         String tripId = getIntent().getStringExtra("trip_id");
@@ -84,8 +85,27 @@ public class ToDoListActivity extends AppCompatActivity {
             Intent intent = new Intent(ToDoListActivity.this, TripSummaryActivity.class);
             startActivity(intent);
         });
+        String startDate = getIntent().getStringExtra("start_date");
+        String startTime = getIntent().getStringExtra("start_time");
 
-        showToDoNotification();
+
+
+        btnAlarm.setOnClickListener(v -> {
+            String starttDate = getIntent().getStringExtra("start_date");
+            String starttTime = getIntent().getStringExtra("start_time");
+
+            if (starttDate != null && starttTime != null) {
+                Intent intent = new Intent(ToDoListActivity.this, AlarmActivity.class);
+                intent.putExtra("start_date", starttDate);
+                intent.putExtra("start_time", starttTime);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "اطلاعات آلارم موجود نیست", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
     }
 
     @Override
@@ -210,7 +230,7 @@ public class ToDoListActivity extends AppCompatActivity {
         }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
-                .setSmallIcon(R.drawable.ic_notifications) // آیکون مناسب را جایگزین کنید
+                .setSmallIcon(R.drawable.ic_notifications)
                 .setContentTitle("لیست کارهای سفر")
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(contentBuilder.toString()))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)

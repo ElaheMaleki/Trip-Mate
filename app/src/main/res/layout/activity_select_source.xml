@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/gradient_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
     <EditText
         android:id="@+id/et_source_address"
         android:layout_width="match_parent"
@@ -24,16 +26,18 @@
         android:fontFamily="@font/vazirmatn"
         android:textStyle="bold"
         android:text=" درسفر همراه ما باشید "
-        android:textColor="#000000"
+        android:textColor="#124E39"
         android:textSize="24dp"
         android:layout_marginTop="80dp"
         android:layout_marginLeft="160dp"
         />
+
+
     <LinearLayout
-        android:layout_width="400dp"
+        android:layout_width="370dp"
         android:layout_height="400dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="180dp">
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="205dp">
          <fragment
             android:id="@+id/map_source"
             android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -43,7 +47,7 @@
     </LinearLayout>
     <Button
         android:id="@+id/btn_confirm_source"
-        android:layout_width="325dp"
+        android:layout_width="370dp"
         android:layout_height="46dp"
         android:fontFamily="@font/vazirmatn"
         android:text="تأیید مبدا"
@@ -54,5 +58,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginBottom="60dp" />
+        android:layout_marginBottom="60dp"
+        app:cornerRadius="4dp"/>
 </RelativeLayout>

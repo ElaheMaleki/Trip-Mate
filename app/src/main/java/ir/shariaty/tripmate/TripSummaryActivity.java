@@ -61,7 +61,7 @@ public class TripSummaryActivity extends AppCompatActivity {
         });
 
         btnAddTrip.setOnClickListener(v -> {
-            Intent intent = new Intent(TripSummaryActivity.this, NewTripActivity.class);
+            Intent intent = new Intent(TripSummaryActivity.this, SelectSourceActivity.class);
             startActivity(intent);
         });
     }
@@ -77,10 +77,11 @@ public class TripSummaryActivity extends AppCompatActivity {
                 JSONObject o = arr.getJSONObject(i);
                 tripObjects.add(o);
 
-                String s = "مقصد: " + o.getString("destination") +
-                        "\nشروع: " + o.getString("startDate") +
-                        "\nپایان: " + o.getString("endDate") +
-                        "\nتعداد افراد: " + o.getInt("peopleCount");
+                // استفاده ایمن از optString
+                String s = "مقصد: " + o.optString("destination", "نامشخص") +
+                        "\nشروع: " + o.optString("startDate", "نامشخص") +
+                        "\nپایان: " + o.optString("endDate", "نامشخص") +
+                        "\nتعداد افراد: " + o.optInt("peopleCount", 0);
                 items.add(s);
             }
         } catch (JSONException e) {
@@ -92,6 +93,7 @@ public class TripSummaryActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, items);
         lv.setAdapter(adapter);
     }
+
 
     private void confirmDeleteTrip(int position) {
         new AlertDialog.Builder(this)
